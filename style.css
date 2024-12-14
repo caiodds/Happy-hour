@@ -1,0 +1,172 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos principais */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Seção de Categorias */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.category {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 10px;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+/* Seção de Assinatura Premium */
+.premium-section {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin: 30px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.premium-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.premium-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn-premium {
+    background-color: #333;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-premium:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tela pequena (mobile) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .premium-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .premium-section p {
+        font-size: 1rem;
+    }
+
+    .btn-premium {
+        padding: 10px 20px;
+    }
+}
+
+/* Tela muito pequena (dispositivos móveis menores) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .category h3 {
+        font-size: 1.2rem;
+    }
+
+    .category img {
+        height: 150px;
+    }
+
+    .premium-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .premium-section p {
+        font-size: 0.9rem;
+    }
+
+    .btn-premium {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
