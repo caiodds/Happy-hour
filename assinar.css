@@ -1,0 +1,201 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Cor de fundo clara */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container principal */
+main {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+    color: #333;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título e descrição */
+header h1 {
+    font-size: 2.5rem;
+    color: #333; /* Cor do texto principal */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Informações Premium */
+.premium-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.premium-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.premium-info ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.premium-info ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Planos */
+.pricing {
+    margin: 30px 0;
+}
+
+.pricing h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.plan h3 {
+    font-size: 1.8rem;
+    color: #1E88E5;
+    margin-bottom: 10px;
+}
+
+.plan p {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.plan ul li {
+    margin-bottom: 10px;
+}
+
+.plan .btn-premium {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.plan .btn-premium:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* RESPONSIVIDADE */
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .plan {
+        width: 90%;
+    }
+
+    .pricing h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .premium-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .plan {
+        width: 100%;
+    }
+
+    .btn-premium {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
