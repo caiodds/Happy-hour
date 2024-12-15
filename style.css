@@ -170,3 +170,23 @@ footer {
         padding: 8px 15px;
     }
 }
+/* Definindo o estilo para a foto de perfil */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px; /* Espaçamento entre foto e nome */
+}
+
+.user-photo {
+    width: 50px;  /* Tamanho da foto */
+    height: 50px; /* Tamanho da foto */
+    border-radius: 50%; /* Deixa a foto circular */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+
+#user-name {
+    font-size: 1.2rem; /* Tamanho do texto */
+    font-weight: bold; /* Deixa o nome mais destacado */
+}
+
