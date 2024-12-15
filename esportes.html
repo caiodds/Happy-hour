@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esportes - HobbyHub</title>
+    <link rel="stylesheet" href="esportes.css">
+</head>
+<body>
+    <header>
+        <h1>Comente sobre o seu esporte favorito!</h1>
+        <p>Compartilhe suas experiências e dicas com a comunidade!</p>
+    </header>
+
+    <section class="comments-section">
+        <h2>Comentários sobre Esportes</h2>
+        <div class="comments-container" id="comments-container">
+            <!-- Os comentários aparecerão aqui -->
+        </div>
+
+        <button class="btn-comment" id="comment-btn">Comentar</button>
+    </section>
+
+    <!-- Modal para coletar o nome antes de comentar -->
+    <div id="name-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h3>Digite seu nome</h3>
+            <input type="text" id="user-name" placeholder="Seu nome..." required>
+            <button id="submit-name" class="btn-premium">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Área de Comentário (inicialmente oculta) -->
+    <div id="comment-area" class="comment-area">
+        <textarea id="comment-text" placeholder="Escreva seu comentário sobre o esporte..." rows="4"></textarea>
+        <button id="submit-comment" class="btn-premium">Postar Comentário</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HobbyHub. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="esporte.js"></script>
+</body>
+</html>
