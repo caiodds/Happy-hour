@@ -153,6 +153,14 @@ header p {
     background-color: #555;
 }
 
+/* Tamanho da foto de perfil nos comentários */
+.comment-photo {
+    width: 40px; /* Ajuste do tamanho da foto */
+    height: 40px; /* Garante que a foto seja quadrada */
+    border-radius: 50%; /* Torna a imagem redonda */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     header h1 {

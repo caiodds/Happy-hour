@@ -52,19 +52,22 @@
 
     <script>
         // Verifica se o usuário está logado
-        const userData = JSON.parse(localStorage.getItem('users'));
-        if (!userData || userData.length === 0) {
-            // Se não houver dados de usuário, redireciona para a página de cadastro
-            window.location.href = 'cadastro.html';
-        } else {
-            // Exibe o nome e foto do usuário
-            const user = userData[userData.length - 1];  // Pega o último usuário cadastrado
-            document.getElementById('user-name').textContent = `Bem-vindo, ${user.name}!`;
+     // Verifica se o usuário está logado
+const userData = JSON.parse(localStorage.getItem('users'));
+if (!userData || userData.length === 0) {
+    // Se não houver dados de usuário, redireciona para a página de cadastro
+    window.location.href = 'cadastro.html';
+} else {
+    // Exibe o nome e foto do usuário
+    const user = userData[userData.length - 1];  // Pega o último usuário cadastrado
+    document.getElementById('user-name').textContent = `Bem-vindo, ${user.name}!`;
 
-            // Se houver uma foto de perfil, exibe ela
-            const userPhoto = user.photo || 'imagens/default-avatar.jpg';  // Foto padrão se não houver foto
-            document.getElementById('user-photo').src = userPhoto;
-        }
+    // Verifica se o usuário tem uma foto de perfil, caso contrário, usa a imagem padrão
+    const userPhoto = user.photo ? user.photo : 'imagens/blank-profile-picture-973460_1280.png'; // Foto padrão se não houver foto
+    document.getElementById('user-photo').src = userPhoto;
+}
+
+        
     </script>
 </body>
 </html>
