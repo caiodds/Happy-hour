@@ -21,16 +21,6 @@
         <button class="btn-comment" id="comment-btn">Comentar</button>
     </section>
 
-    <!-- Modal para coletar o nome antes de comentar -->
-    <div id="name-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-btn">&times;</span>
-            <h3>Digite seu nome</h3>
-            <input type="text" id="user-name" placeholder="Seu nome..." required>
-            <button id="submit-name" class="btn-premium">Enviar</button>
-        </div>
-    </div>
-
     <!-- Área de Comentário (inicialmente oculta) -->
     <div id="comment-area" class="comment-area">
         <textarea id="comment-text" placeholder="Escreva seu comentário sobre o esporte..." rows="4"></textarea>
@@ -38,9 +28,88 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 HobbyHub. Todos os direitos reservados.1</p>
+        <p>&copy; 2024 HobbyHub. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="esporte.js"></script>
+    <script type="module">
+        // Importa as funções necessárias do Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+      
+        // Sua configuração do Firebase
+        const firebaseConfig = {
+          apiKey: "AIzaSyDOPInYefijpkxgv6g6w8zutgl-GywW5hw",
+          authDomain: "hubby-2e015.firebaseapp.com",
+          projectId: "hubby-2e015",
+          storageBucket: "hubby-2e015.firebasestorage.app",
+          messagingSenderId: "658401159787",
+          appId: "1:658401159787:web:a5f63d4b76df0acfba5f2e",
+          measurementId: "G-8VNNW9M9RT"
+        };
+      
+        // Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
+      
+        // Inicializa o Firestore
+        const db = getFirestore(app);
+      
+        // Função para postar comentário no Firestore
+        document.getElementById('submit-comment').addEventListener('click', async () => {
+          const commentText = document.getElementById('comment-text').value;
+          const userName = localStorage.getItem('userName'); // Obtém o nome do usuário do LocalStorage
+          const userPhoto = localStorage.getItem('userPhoto'); // Obtém a foto do usuário do LocalStorage
+      
+          if (commentText.trim() !== '') {
+            try {
+              // Adiciona o comentário no Firestore
+              await addDoc(collection(db, "comments"), {
+                name: userName,
+                photo: userPhoto || 'imagens/default-avatar.jpg', // Foto padrão se não houver uma foto
+                comment: commentText,
+                timestamp: serverTimestamp()
+              });
+      
+              // Limpa o campo de comentário
+              document.getElementById('comment-text').value = '';
+              alert('Comentário postado com sucesso!');
+              loadComments(); // Atualiza os comentários após postar
+            } catch (error) {
+              console.error('Erro ao postar comentário: ', error);
+            }
+          } else {
+            alert('Por favor, escreva um comentário.');
+          }
+        });
+      
+        // Função para carregar os comentários do Firestore
+        async function loadComments() {
+          const commentsContainer = document.getElementById('comments-container');
+          commentsContainer.innerHTML = ''; // Limpa os comentários existentes
+      
+          // Recupera os comentários ordenados pela data
+          const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+          const querySnapshot = await getDocs(q);
+      
+          // Exibe os comentários
+          querySnapshot.forEach(doc => {
+            const commentData = doc.data();
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            
+            commentElement.innerHTML = `
+              <div class="comment-header">
+                <img src="${commentData.photo}" class="comment-photo" alt="Foto de perfil">
+                <strong>${commentData.name}</strong>
+              </div>
+              <p>${commentData.comment}</p>
+            `;
+            commentsContainer.appendChild(commentElement);
+          });
+        }
+      
+        // Carrega os comentários quando a página carregar
+        window.onload = loadComments;
+      
+      </script>
 </body>
 </html>
