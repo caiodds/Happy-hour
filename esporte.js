@@ -65,20 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
   // Quando o comentário é enviado
   submitCommentBtn.addEventListener('click', async function() {
     const commentText = document.getElementById('comment-text').value;
-    const userName = localStorage.getItem('userName'); // Obtém o nome do usuário do LocalStorage
-    const userPhoto = localStorage.getItem('userPhoto'); // Obtém a foto do usuário do LocalStorage
-
+    const userName = localStorage.getItem('userName') || 'Usuário Anônimo'; // Nome padrão se não encontrado
+    const userPhoto = localStorage.getItem('userPhoto'); // Foto do usuário do LocalStorage
+  
     console.log("Comentário enviado");
+    console.log(`Texto do comentário: ${commentText}`);
+    console.log(`Nome do usuário: ${userName}, Foto do usuário: ${userPhoto}`);
+  
     if (commentText.trim() !== '') {
       try {
+        console.log("Adicionando comentário no Firestore...");
         // Adiciona o comentário no Firestore
         await addDoc(collection(db, "comments"), {
           name: userName,
-          photo: userPhoto || 'imagens/blank-profile-picture-973460_1280.png', // Foto padrão se não houver uma foto
+          photo: userPhoto || 'imagens/blank-profile-picture-973460_1280.png', // Foto padrão se não houver
           comment: commentText,
           timestamp: serverTimestamp() // Marca o momento de postagem
         });
-
+  
         // Limpa o campo de comentário
         document.getElementById('comment-text').value = '';
         alert('Comentário postado com sucesso!');
@@ -90,4 +94,5 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Por favor, escreva um comentário.');
     }
   });
+  
 });
