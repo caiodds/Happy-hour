@@ -8,7 +8,20 @@ document.getElementById("close-btn").addEventListener("click", function() {
     document.getElementById("name-modal").style.display = "none";
 });
 
-// Função para enviar o nome e liberar a área de comentário
+// Função para carregar os comentários ao carregar a página
+function loadComments() {
+    let comments = JSON.parse(localStorage.getItem("comments")) || [];
+    let commentSection = document.getElementById("comments-container");
+
+    comments.forEach(comment => {
+        let newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.innerHTML = `<h4>${comment.name}</h4><p>${comment.text}</p>`;
+        commentSection.appendChild(newComment);
+    });
+}
+
+// Função para salvar o comentário no LocalStorage
 document.getElementById("submit-name").addEventListener("click", function() {
     let userName = document.getElementById("user-name").value;
     if (userName) {
@@ -19,10 +32,16 @@ document.getElementById("submit-name").addEventListener("click", function() {
         // Libera a área de comentário
         document.getElementById("comment-area").style.display = "block";
 
-        // Armazena o nome do usuário para utilizá-lo nos comentários
+        // Função para enviar o comentário e salvar no LocalStorage
         document.getElementById("submit-comment").addEventListener("click", function() {
             let commentText = document.getElementById("comment-text").value;
             if (commentText) {
+                // Armazenar o comentário no LocalStorage
+                let comments = JSON.parse(localStorage.getItem("comments")) || [];
+                comments.push({ name: userName, text: commentText });
+                localStorage.setItem("comments", JSON.stringify(comments));
+
+                // Exibe o novo comentário
                 let commentSection = document.getElementById("comments-container");
                 let newComment = document.createElement("div");
                 newComment.classList.add("comment");
@@ -39,3 +58,8 @@ document.getElementById("submit-name").addEventListener("click", function() {
         alert("Por favor, digite seu nome.");
     }
 });
+
+// Carregar os comentários quando a página é carregada
+window.onload = function() {
+    loadComments();
+};
