@@ -1,198 +1,212 @@
-/* Reset Básico */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo Global */
+/* Estilos principais */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #ffffff, #ffffff); /* Fundo mais moderno */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center; /* Centraliza o texto em todo o corpo */
 }
 
-/* Container Principal */
-main {
-    width: 100%;
-    max-width: 900px;
-    background-color: #ffffff;
-    color: #333;
-    border-radius: 12px;
-    padding: 40px 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
     text-align: center;
 }
 
-/* Cabeçalho */
 header h1 {
     font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
 }
 
-/* Informações Premium */
-.premium-info h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #4CAF50;
-}
-
-.premium-info ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    font-size: 1rem;
-    color: #555;
-}
-
-.premium-info ul li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.premium-info ul li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #4CAF50;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Seção de Planos */
-.pricing {
-    margin: 30px 0;
-}
-
-.pricing h2 {
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.plans {
+/* Seção de Categorias */
+.categories {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Para responsividade */
+    justify-content: center; /* Centraliza as categorias */
+    flex-wrap: wrap;
+    margin: 20px 0;
+    gap: 20px; /* Espaçamento entre as categorias */
 }
 
-.plan {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 12px;
+.category {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 10px;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+/* Seção de Assinatura Premium */
+.premium-section {
+    background-color: #fff;
     padding: 20px;
     text-align: center;
-    width: calc(33.333% - 20px); /* Tamanho ajustável */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 30px auto;
+    width: 60%; /* Mantém o conteúdo mais centralizado e com tamanho adequado */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.plan:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.premium-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
-.plan h3 {
-    font-size: 1.8rem;
-    color: #1E88E5;
-    margin-bottom: 10px;
-}
-
-.plan p {
-    font-size: 1.5rem;
-    color: #4CAF50;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.plan ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: #555;
-}
-
-.plan ul li {
-    margin-bottom: 10px;
-}
-
-.plan .btn-premium {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
+.premium-section p {
     font-size: 1.2rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
 }
 
-.plan .btn-premium:hover {
-    background-color: #3e8e41;
-    transform: scale(1.05);
+.btn-premium {
+    background-color: #333;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-block;
 }
 
-/* Rodapé */
+.btn-premium:hover {
+    background-color: #555;
+}
+
+/* Footer */
 footer {
-    margin-top: 30px;
-    font-size: 0.9rem;
-    color: #777;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Permite que o footer não fique fixo */
 }
 
-/* Responsividade */
+/* Media Queries para Responsividade */
 
-/* Para tablets */
+/* Tela pequena (mobile) */
 @media (max-width: 768px) {
-    .plans {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .plan {
-        width: 100%; /* Ocupa toda a largura */
-    }
-}
-
-/* Para celulares */
-@media (max-width: 480px) {
     header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     header p {
         font-size: 1rem;
     }
 
-    .premium-info h2 {
-        font-size: 1.5rem;
+    .categories {
+        flex-direction: column;
+        align-items: center;
     }
 
-    main {
-        padding: 20px;
+    .category {
+        width: 80%;
+        margin: 10px 0;
     }
 
-    .plan {
-        padding: 15px;
+    .premium-section {
+        width: 80%;
+    }
+
+    .premium-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .premium-section p {
+        font-size: 1rem;
     }
 
     .btn-premium {
-        font-size: 1rem;
-        padding: 10px 15px;
+        padding: 10px 20px;
+    }
+}
+
+/* Tela muito pequena (dispositivos móveis menores) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .category h3 {
+        font-size: 1.2rem;
+    }
+
+    .category img {
+        height: 150px;
+    }
+
+    .premium-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .premium-section p {
+        font-size: 0.9rem;
+    }
+
+    .btn-premium {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    footer {
+        position: relative;
+        bottom: auto;
+    }
+}
+
+/* Estilo para o botão de Voltar ao Home */
+.back-home {
+    margin-top: 30px; /* Dá um espaço entre os planos e o botão */
+}
+
+.btn-back-home {
+    display: inline-block;
+    background-color: #007BFF; /* Cor de fundo azul */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.btn-back-home:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
+
+/* Responsividade do botão para telas menores */
+@media (max-width: 768px) {
+    .btn-back-home {
+        font-size: 1rem; /* Reduz o tamanho da fonte em telas pequenas */
+        padding: 8px 15px;
     }
 }
