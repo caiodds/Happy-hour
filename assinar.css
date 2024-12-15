@@ -1,15 +1,15 @@
-/* Reset básico */
+/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo */
+/* Estilo Global */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Fundo neutro */
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ffffff, #ffffff); /* Fundo mais moderno */
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,29 +17,29 @@ body {
     padding: 20px;
 }
 
-/* Container principal */
+/* Container Principal */
 main {
     width: 100%;
-    max-width: 1200px;
-    background-color: #ffffff; /* Fundo branco */
+    max-width: 900px;
+    background-color: #ffffff;
     color: #333;
     border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
-/* Título e descrição */
+/* Cabeçalho */
 header h1 {
     font-size: 2.5rem;
-    color: #333; /* Cor principal */
+    color: #333;
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2rem;
+    color: #555;
     margin-bottom: 30px;
-    color: #666;
 }
 
 /* Informações Premium */
@@ -72,7 +72,7 @@ header p {
     font-size: 1.2rem;
 }
 
-/* Planos */
+/* Seção de Planos */
 .pricing {
     margin: 30px 0;
 }
@@ -80,14 +80,14 @@ header p {
 .pricing h2 {
     font-size: 2.2rem;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .plans {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Para responsividade */
 }
 
 .plan {
@@ -95,15 +95,15 @@ header p {
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 20px;
-    width: 300px;
     text-align: center;
+    width: calc(33.333% - 20px); /* Tamanho ajustável */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .plan:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .plan h3 {
@@ -155,53 +155,40 @@ footer {
     color: #777;
 }
 
-/* RESPONSIVIDADE */
+/* Responsividade */
 
-/* Ajustes para tablets */
+/* Para tablets */
 @media (max-width: 768px) {
-    main {
-        padding: 20px;
+    .plans {
+        flex-direction: column;
+        gap: 20px;
     }
 
+    .plan {
+        width: 100%; /* Ocupa toda a largura */
+    }
+}
+
+/* Para celulares */
+@media (max-width: 480px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     header p {
         font-size: 1rem;
     }
 
-    .plan {
-        width: 90%;
-        margin: 10px 0;
-    }
-
-    .pricing h2 {
-        font-size: 1.8rem;
-    }
-}
-
-/* Ajustes para celulares */
-@media (max-width: 480px) {
-    main {
-        padding: 10px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
     .premium-info h2 {
         font-size: 1.5rem;
     }
 
+    main {
+        padding: 20px;
+    }
+
     .plan {
-        width: 100%;
-        margin: 10px 0;
+        padding: 15px;
     }
 
     .btn-premium {
